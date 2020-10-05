@@ -14,6 +14,7 @@ import (
 
 var palette = []color.Color{color.White,color.Black,color.RGBA{0x00,0xff,0x00, 0xff}}
 
+
 const (
 	whiteIndex = 0
 	blackIndex = 1
@@ -21,11 +22,12 @@ const (
 )
 
 func main() {
+
 	handler := func(w http.ResponseWriter, r *http.Request) {
 		lissajous(w)
 	}
 	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+	log.Fatal(http.ListenAndServe("127.0.0.1:8000", nil))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
